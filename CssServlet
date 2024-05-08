@@ -1,0 +1,65 @@
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+import javax.jcr.Node;
+import javax.jcr.Session;
+import javax.jcr.ValueFactory;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletPaths;
+import org.osgi.service.component.annotations.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Component(service = { Servlet.class })
+@SlingServletPaths(value = { "/bin/createcss" })
+public class CreateCssServlet extends SlingAllMethodsServlet {
+
+    private static Logger log = LoggerFactory.getLogger(CreateCssServlet.class);
+
+    @Override
+    protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response)
+            throws ServletException, IOException {
+        ResourceResolver resourceResolver = null;
+        try {
+            log.debug("resourceResolver ");
+            resourceResolver = request.getResourceResolver();
+            log.debug("resourceResolver : {}", resourceResolver);
+            Node parentNode = resourceResolver.getResource("/apps/AemTrainingSite/clientlibs/clientlib-site/css")
+                    .adaptTo(Node.class);
+            log.debug("parentNode : {}", parentNode);
+            // Create a new CSS file node
+            Node cssFileNode = parentNode.addNode("example.css", "nt:file");
+            log.debug("cssFileNode : {}", cssFileNode);
+            // Set properties for the CSS file node
+            Node contentNode = cssFileNode.addNode("jcr:content", "nt:resource");
+            log.debug("contentNode : {}", contentNode);
+            contentNode.setProperty("jcr:mimeType", "text/css");
+
+            // Set content for the CSS file
+            String cssContent = ".cmp-text b {font-weight: bold;} .cmp-text p a:hover {outline: none;text-decoration: underline;border-color: var(--text-linkcolor);text-decoration-style: solid;text-decoration-color: var(--text-linkcolor);text-decoration-thickness: 0.125em;} /*Text helo Component*/.cmp-text {margin: 0.15rem 0 0 0;color: #e22828;font-weight: normal;font-size: 1em;} .cmp-text p a {border-radius: 0.25em;color: var(--text-linkcolor);text-decoration: none;} ";
+            byte[] cssBytes = cssContent.getBytes();
+            ValueFactory valueFactory = resourceResolver.adaptTo(Session.class).getValueFactory();
+            log.debug("ValueFactory : {}", valueFactory);
+            contentNode.setProperty("jcr:data", valueFactory.createBinary(new ByteArrayInputStream(cssBytes)));
+            log.debug("contentNode : {}", contentNode);
+
+            // Save changes
+            resourceResolver.commit();
+
+            response.getWriter().println("CSS file created successfully");
+        } catch (Exception e) {
+            // Handle exception
+            response.getWriter().println("Error creating CSS file: " + e.getMessage());
+        } finally {
+            if (resourceResolver != null && resourceResolver.isLive()) {
+                resourceResolver.close();
+            }
+        }
+    }
+}
