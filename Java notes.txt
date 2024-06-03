@@ -127,14 +127,21 @@ Static Keyword
 The static keyword in Java is used for memory management mainly. We can apply static keyword with variables, methods, blocks and nested classes. The static keyword belongs to the class than an instance of the class.
 The static variable can be used to refer to the common property of all objects (which is not unique for each object), for example, the company name of employees, college name of students, etc.
 The static variable gets memory only once in the class area at the time of class loading
-
+==================================================================================================================
 This Keyword
+============
 There can be a lot of usage of Java this keyword. In Java, this is a reference variable that refers to the current object.
 this can be used to refer current class instance variable.
-this can be used to invoke current class method (implicitly)
+this can be used to invoke current cl     ass method (implicitly)
 this() can be used to invoke current class constructor.
 this can be passed as an argument in the method call.
 this can be passed as argument in the constructor call.
 this can be used to return the current class instance from the method.
 
+Converting data values
+==============
+converting string to an int
+int myInt = Integer.parseInt(s_name);
+converting string to double
+double mydouble =Double.parseInt(s_name);
 
