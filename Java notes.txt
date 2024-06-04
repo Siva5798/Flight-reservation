@@ -145,3 +145,48 @@ int myInt = Integer.parseInt(s_name);
 converting string to double
 double mydouble =Double.parseInt(s_name);
 
+Encapsulation
+==============
+Encapsulation in Java is a powerful mechanism for storing the data members and data methods of a class together. It is done in the form of a secure field accessible by only the members of the same class.
+
+Encapsulation in Java is the process by which data (variables) and the code that acts upon them (methods) are integrated as a single unit. By encapsulating a class's variables, other classes cannot access them, and only the methods of the class can access them.
+
+a class's variables are hidden from other classes and can only be accessed by the methods of the class in which they are found.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Own words
+==========================
+declaring the variables to private and access setting their values in the constructor now create a new object in the main method and access the values with object 
+
+if i have a private method and return the  no value  then then function of the method is printed in the constryuctor class
+if i have a private method and return the value then in the main function we need to create a new variable, with the help of the variable we can assigne the private method value to this variable with the help of the object
+
+Example 
+public class Encapsulation {
+    private int id;
+    private String st;
+    private double price;
+    private static int nextId =1;
+
+    public Encapsulation(){
+        st="Siva Thanu M S";
+        price = 1.08;
+        setId();
+      //  System.out.println("ID : "+id);
+
+    }
+    private int setId(){
+       return id=Encapsulation.nextId++;
+    }
+public static void main(String[] args){
+    Encapsulation ec = new Encapsulation();
+    System.out.println("Desc : "+ec.st);
+    int i=ec.setId();
+    System.out.println("ID:"+i);
+    
+}
+    
+}
+==============================================================================
+getters and setters
+
+
