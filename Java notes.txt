@@ -190,3 +190,10 @@ public static void main(String[] args){
 getters and setters
 
 
+====================
+Switch()
+when you are testing a equality (not range)
+a single value
+against fixed value at compile time
+===============================================
+
