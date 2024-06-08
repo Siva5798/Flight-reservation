@@ -7,6 +7,95 @@ AEM HeadLess
 Content fragment model
 content fragment editor
 graphQL & content services
-===============================================
-headless content creation
+==============================================
+
+SLING MODEL:
+============
+Sling model is an  rest API which is used to map the request to its resource
+data-sly-use.slingmodel="/provide the core path "
+ways to create slingmodel
+2 ways 
+@Model(adaptables=Resource.class)
+===================================
+@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+If we are having a component it will have a dialog we have authored the data
+we wantb to show the data to html we will use resource adaptables
+
+@Model(adaptables = SlingHttpServletRequest.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "Aem-Site/components/custom_components/compositemultifield")
+IF we are having a form component eg form so if we want to get the data while submitted
+based on the request attribute in slingmodel and then based the data which is coming into sling model
+then we use SlingHttpServletRequest.class adaptables
+
+Injection strategy (Default or Optional) 
+By default if you want all the properties to injected in optional or default choose them and define it 
+
+Injecting services into model @OSGISERVICE
+Injecting one sling model to another slingmodel @SELF 
+we will mention the private variable type of the corresponding slingmodel
+
+Advantage of Postcontruct
+==========================
+@Inject will inject the dialog data which is authored and saved and by fetching 
+html it will coming using @Inject
+after the data coming into java class if we want the dailog to perform custom operations
+for ex if we have a text field we have authored the text and saved and with the text we want 
+to call an api with post construct method and fetch some more data then in the case 
+we use post contruct
+after injection are done post construct will be exectured
+
+@via
+Via is used super resource type property to access in the child resource type we 
+use via
+@valuemapvalue
+fetch data from one request adaptablity from the request parameter into sling model we use 
+Valuemapvalue
+=====================================================================================================
+Sling Schedular
+Everything in aem is a OSGI service except slingmodel @Model other @Component
+
+A schedular is a service to schedule jobs, thus we want some work to happen at a
+particular time or at a regular interval of time we want schedulars 
+there are two ways 1.) whiteboard pattern//depricated 2.) Schedular API
+
+Execute the schedulars in diff ways 
+eg: data|time|Cron expression-> 1 1 1 0 0 ** date
+======================================================================================================================================
+package: org.apache.sling.commons.schedular
+A scheduler is to schedule time/cron based jobs
+A job is an object which is executed /fired by the scheduler
+The object in the schedular API should implement job interface or the Runnable interface
+
+Methods of Schedular
+==================
+1)SchedulerOptions AT(Date date) :
+    Create a schedule to fire a job once at a specific date
+2)SchedulerOptions AT(Date date, int times,long period):
+    Create a schedule to fire a job period starting at a specific date.
+3)SchedulerOptions EXPR(String expression)
+    Create a schedule Options to schedule the job based on the expressions
+4)SchedulerOptions Now()
+    Create a schedule options to fire immediately and only once;
+eg Now()-> only once
+   Now(3,5) 1,5 means job running first time and wait for 5 seconds and then (2,5)
+   then(3,5)
+5)boolean schedule (Object job, ScheduleOptions options):
+    schedule a job based on the options
+6)boolean unschedule (String jobname):
+    Removed a schedule job by name.
+===============================================================================Ma======
+Manualy we need to define the job name 
+ScheduleOptions
+package: org.apache.sling.commons.schedular
+SchedularOptions provide an extensive way of defining how tpo schedule a job
+An options can be created viw the schedular
+
+1) ScheduleOptions config(Map<Serilaization,String>config);
+    Add optional configuration for the job.
+2.)ScheduleOptions name(String name):
+    Set the name of the job.
+    A job only needs a name if its scheduled and should be cancelled later on.
+3.) ScheduleOptions canRunConcurrently(boolean flag):
+    Flag indicating whether the job can be run concurrently.
+
+=================================================================================================
 
