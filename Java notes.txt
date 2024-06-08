@@ -197,3 +197,10 @@ a single value
 against fixed value at compile time
 ===============================================
 
+Static keyword/variables
+=====================
+If an variable is intialised in static keyword therefore the variable is common for all the objects which means that it can be accessed by all the objects present inside the class
+the variable which is defined in static can be called from the object of the class but it can also be accesed by the method
+name so when static variables can be accssed by both object & methods 
+
+
