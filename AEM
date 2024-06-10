@@ -1,3 +1,29 @@
+CRXDE Folder 
+=========
+app folder --> is for the component.
+Conf folder--> project/ content fragment.
+Content folder --> content is used to store the data which includes media video images etc which is stored inside the DAM 
+                   present inside the content folder
+                   Tags will be available 
+                   Experience fragments 
+                   contain content of page and we can see the list of components available on the page.
+                   creating more than one users will form a groups in user groups
+etc        --> inside the etc folder is for the workflows
+libs       --> components will be available in core/wcm/ and foundation components will be available
+               MSM will be available under libs..
+home folder --> is for user groups and passwords 
+
+sling:resourceSuperType and sling:resourceType. 
+==========================================
+sling:resourceSuperType: It is used to achieve inheritance in cq. When set, 
+it inherits the specified component to this component.
+
+sling:resourceType: It is a path, which locates the script to be used for rendering the content.
+==============================================================================================================================================
+JCR in AEM 
+================
+the JCR in AEM is stored in the form of properties in the crxde console in which the value of the properties are stored in key value pairs
+
 AEM HeadLess
 ==================
 * Provides an api-first content management solution the decouple content from experience.
