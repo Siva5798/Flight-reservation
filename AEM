@@ -24,6 +24,16 @@ JCR in AEM
 ================
 the JCR in AEM is stored in the form of properties in the crxde console in which the value of the properties are stored in key value pairs
 
+allowing all content in allowed path
+/content(/.)?
+============================================================================================================================================
+Components in AEM
+=================
+Components are the basic building block of the AEM website they can be easily dragged and dropped into the page
+components are resuable module that implements specific application logic to render the content in the website
+collections of scripts 
+two components WCM has two components Core & Foundation
+
 AEM HeadLess
 ==================
 * Provides an api-first content management solution the decouple content from experience.
