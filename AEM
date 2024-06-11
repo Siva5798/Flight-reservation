@@ -69,18 +69,53 @@ Node type of client Library is cq:ClientLibraryFolder
 jss.txt & css.txt are mandatory to manage JS and CSS files
 
 the name of the clientLib is given by using categories so that this categories can be called 
-
+dependency
+=========
 the dependencies property in an clientlib is used for the calling a clientLib before the current clientlib
 by which the properties of current currentLib must contain the dependencies of the clientLib which is need to be called before the current.
-
-allowProxy = true
-in general if the dispatcher is in the local it will block for security reasons the client libs because it will load from /apps/clientlibs/dev1.js 
-so if we give allowProxy is true it will convert it load from apps to etc folder so etc/clientlibs/dev1.js 
-so dispacter will block the client libs while loading
 
 We want to call all the js and css in seperate folder individually with the help of #base= foldername so all the present in the folder will be called at once in the order maintained
 inside the folder
 
+allowProxy = true
+==================
+in general if the dispatcher is in the local it will block for security reasons the client libs because it will load from /apps/clientlibs/dev1.js 
+so if we give allowProxy is true it will convert it load from apps to etc folder so etc/clientlibs/dev1.js 
+so dispacter will block the client libs while loading
+
+Embed
+=====
+if we inspect it and see in the page there wont be two js files if embed property is added only one js will be there which hold all the js in it 
+embed will combine the js into single file so that when the current 
+
+==========================================================================================================================================================================================
+Fragment 
+========
+Fragment is very useful because we can able to reuse them on multiples pages and whenever required we can edit them from single location.
+    
+Content Fragment
+================
+If we have an content in a page if we want to render the same content in another pages content fragment is used same it is 
+applicable to transfer the content to any third party channels or any other websites etc
+Content fragmenr model 
+=====================
+Creating the structure of the cf we have use the cf model 
+
+content fragment are editorial content ,primary text and related images which provides validation also its just pure content without styles 
+content fragment allows the you to create channel specific variations abd also we can use the content fragments and its variations while authoring the pages 
+content fragmenet component will display the content from the content fragement
+content fragment can be exported in an json format using the slingmodel json export capabilities
+
+note : first the model will be created then go to asset and create the content fragment
+variations can be used in content fragment with same model we enter diff data and access it in other pages or sites
+
+the cf models is stored in conf/dam/models whereas the content fragments and its variations are store in content/dam/project/contentfragment
+=============================================================================================================================================================================================
+Experience fragments
+===================
+create once and reuse it in multiple pages 
+it is made up of one or more components , can be created by dynamic templated only , can have different variations which may share content and components 
+experience fragments is stored in Content/experience fragment in which it will store as a cq page
 
   
 
