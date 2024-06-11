@@ -18,12 +18,13 @@ mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate
     -D version="0.0.1-SNAPSHOT" 
     -D aemVersion="cloud"
 
-
-==========================================
-
-
+Command for deployments
+mvn clean install -PautoInstallSinglePackage
+mvn clean install -PautoInstallPackage
+mvn clean install -PautoInstallBundle -DskipTests    ===> it will skip the juint test cases 
+====================================================================================================================================================
 CRXDE Folder 
-=========
+=================
 app folder --> is for the component.
 Conf folder--> project/ content fragment.
 Content folder --> content is used to store the data which includes media video images etc which is stored inside the DAM 
@@ -36,7 +37,17 @@ etc        --> inside the etc folder is for the workflows
 libs       --> components will be available in core/wcm/ and foundation components will be available
                MSM will be available under libs..
 home folder --> is for user groups and passwords 
+===================================================================================================================================================
+cq:dialog
+sling:resourceType is used to inherit the content of the dialog from the libs
 
+remove the/libs/ and use in the resoucre type
+ 
+/libs/granite/ui/components/coral/foundation =====> will also contains the fields etc
+/libs/cq/gui/components/authoring ====> contains the path of the  searchfield status bar etc
+/libs/granite/ui/components/coral/foundation/form/multifield ======> all the fields will be available under form
+
+JCR properties like name ./rolnum here this nol number will act as a variable to store the value from the page 
 sling:resourceSuperType and sling:resourceType. 
 ==========================================
 sling:resourceSuperType: It is used to achieve inheritance in cq. When set, 
@@ -51,6 +62,30 @@ the JCR in AEM is stored in the form of properties in the crxde console in which
 allowing all content in allowed path
 /content(/.)?
 ============================================================================================================================================
+Client Library:
+================
+Adobe introduced clientlibs to manage css,js and required resources (font , images)
+Node type of client Library is cq:ClientLibraryFolder
+jss.txt & css.txt are mandatory to manage JS and CSS files
+
+the name of the clientLib is given by using categories so that this categories can be called 
+
+the dependencies property in an clientlib is used for the calling a clientLib before the current clientlib
+by which the properties of current currentLib must contain the dependencies of the clientLib which is need to be called before the current.
+
+allowProxy = true
+in general if the dispatcher is in the local it will block for security reasons the client libs because it will load from /apps/clientlibs/dev1.js 
+so if we give allowProxy is true it will convert it load from apps to etc folder so etc/clientlibs/dev1.js 
+so dispacter will block the client libs while loading
+
+We want to call all the js and css in seperate folder individually with the help of #base= foldername so all the present in the folder will be called at once in the order maintained
+inside the folder
+
+
+  
+
+
+
 Components in AEM
 =================
 Components are the basic building block of the AEM website they can be easily dragged and dropped into the page
