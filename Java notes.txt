@@ -203,4 +203,99 @@ If an variable is intialised in static keyword therefore the variable is common 
 the variable which is defined in static can be called from the object of the class but it can also be accesed by the method
 name so when static variables can be accssed by both object & methods 
 
+===================================================================================================
+Array                                                                    ArrayList
+it is single/double/multidimensional                                    It is single dimensional
+array is of fixed length                                               dynamic length increased or decresed
+length keyword is used to give the total length                        Size() method is used to give the total length
+Tt is faster as above we see it of fixed size                          Slower because of dynamic memory 
+Primitive data types can be stored directly unlikely object            Primitive data types are not directly added unlikely arrays, they are                                                                            added indirectly with help of autoboxing and unboxing
+Assignment operator is used to add the value                           add() method is used to add and get() method is used to get the values in                                                                         the arraylist
+=========================================================================================================================
+LinkedList
+===========
+For many cases, the ArrayList is more efficient as it is common to need access to random items in the list, but the LinkedList provides several methods to do certain operations more efficiently
+addFirst()	Adds an item to the beginning of the list	
+addLast()	Add an item to the end of the list	
+removeFirst()	Remove an item from the beginning of the list	
+removeLast()	Remove an item from the end of the list	
+getFirst()	Get the item at the beginning of the list	
+getLast()      Get the item at the end of the list
+============================================================================================================================================
+Queue
+=======
+FIFO
+ It follows the first-in, first-out (FIFO) principle, which means that the elements are retrieved in the order 
+in which they were added to the queue.
+add()
+poll() remove and return the first element
+peek() return the element at the front of queue
+remove() remove the FI element if its a queue
+=====================================================================================================================
+Priority Queue
+================
+The insertion order is not retained in the PriorityQueue. 
+The elements are stored based on the priority order which is ascending by default. 
+=========================================================================================================================
+Map
+=======
+The Map interface can only be used with an implementing class. 
+It allows to store the values in key-pair combination; 
+it does not allow duplicate keys
+It allows us to store the null values and null keys.
 
+HashMap
+=========
+Java HashMap class implements the Map interface which allows us to store key and value pair, 
+where keys should be unique
+It allows us to store the null elements as well, but there should be only one null key. 
+put() method inserts the elements in the map.
+putifAbsent() will add new entries if it doesnot exist
+putAll() is an inbuilt method of HashMap class that is used for the copy operation. The method copies all of the elements i.e., the mappings, from one map into another.
+HashMap maintains no order
+================================================================================================================================
+Difference between HashSet and HashMap
+=====================================
+HashSet contains only values 
+whereas HashMap contains an entry(key and value).
+============================================================================================================================
+(100, siva) (200,Thanu) (300,Vishak)
+keySet() ===== >      it is used to get the keyvalues
+entrySet() ========>  it is used to define {100=siva, etc}
+value() =========>    it will get the values
+==========================================================================================================================
+Exceptions 
+======== way of handling errors
+
+public class Main {
+  public static void main(String[] args) {
+    try {
+      int[] myNumbers = {1, 2, 3};
+      System.out.println(myNumbers[10]);
+    } catch (Exception e) {
+      System.out.println("Something went wrong.");
+    } finally {
+      System.out.println("The 'try catch' is finished.");
+    }
+  }
+}
+TRY
+====
+The try statement allows you to define a block of code to be
+tested for errors while it is being executed.
+Catch
+======
+The catch statement allows you to define a block of code to be executed, 
+if an error occurs in the try block.
+Finally
+========
+finally will execute any way regardless of the result
+Throws
+========
+The throw statement allows you to create a custom error.
+=========================================================================================================================================
+Lamda
+-------
+A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right in the body of a method.
+parameter -> expression
+====================================================================================================================================
