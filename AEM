@@ -1,3 +1,27 @@
+AEM Archetrype
+====================
+AEM archetype is a project template from which the other projects can  be created 
+The archetype involves 
+The project structure
+POM files
+File valut configurations
+
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate 
+    -D archetypeGroupId=com.adobe.aem 
+    -D archetypeArtifactId=aem-project-archetype 
+    -D archetypeVersion=39                  ======> archetype version below 30 is preferable because instance may crash on uppper level
+    -D appTitle="WKND Sites Project"        ======> name displayed in the site level
+    -D appId="wknd"                         ======> crxde app project name 
+    -D groupId="com.adobe.aem.guides"       ======> java core bundle 
+    -D artifactId="aem-guides-wknd"         ======> folder name of the project setup in local in which it is downloaded from the cloud aem from that archetype it is downloading to local
+    -D package="com.adobe.aem.guides.wknd"  =======> no need for now 
+    -D version="0.0.1-SNAPSHOT" 
+    -D aemVersion="cloud"
+
+
+==========================================
+
+
 CRXDE Folder 
 =========
 app folder --> is for the component.
