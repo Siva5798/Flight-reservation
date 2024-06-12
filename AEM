@@ -147,6 +147,15 @@ data-sly-resource - To include resources(Components ,content resources)
 
 data-sly-list----- Repeat the host element based on the size of the list
 data-sly-test - conditionally removed host element and data
+data-sly-unwrap ----------  it is used to remove the unused elements shown in the page div class etc
+data-sly-attribute -------- it is used to add the own name in the inspec page
+
+data-sly-template -- to add a template value 
+template holds a multifield 
+multifield value = valu1 valu2 valu3
+data-sly-template.provideanyname="${ value @fname="siva", lname="M S", software "OS"}"
+data-sly-call="${value@fname,lname,software)"
+data-sly-call --- it is used to call clientlib /template etc 
 
 Components in AEM
 =================
@@ -170,6 +179,7 @@ SLING MODEL:
 ============
 Sling model is an  rest API which is used to map the request to its resource
 data-sly-use.slingmodel="/provide the core path "
+slingmodel supports both classes and interfaces
 ways to create slingmodel
 2 ways 
 @Model(adaptables=Resource.class)
