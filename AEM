@@ -19,6 +19,7 @@ mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate
     -D aemVersion="cloud"
 
 Command for deployments
+=========================
 mvn clean install -PautoInstallSinglePackage
 mvn clean install -PautoInstallPackage
 mvn clean install -PautoInstallBundle -DskipTests    ===> it will skip the juint test cases 
@@ -118,8 +119,34 @@ it is made up of one or more components , can be created by dynamic templated on
 experience fragments is stored in Content/experience fragment in which it will store as a cq page
 
   
+===============================================================================================================================================================================================
+HTL Template (HTML Template Language) html =htl/slightly
+-==============================================================
+Advantages
+Security/Development efficiency/Reduced costs/Java knowledge is not required.
 
+data-sly-use"${}"
 
+@format will be used if you we want assigned values to get in htl from jcr properties @format =properties.title
+ if we want to add more than one properties we use array${'yyyy-mm-dd' @format = [properties.jcr:lastmodified, properties]
+${'{0} {1} '@format=[properties.jcr:title,properties.text]}
+
+CRX
+Valumap is a java class which contains the properties of jcr like propeties/pageProperties/inheritedPageProperties
+<p>${inheritedPageProperties.jcr:title}</p>
+block statments
+=========================
+data-sly-use - To initialize JAVA, javascripts,TemplatesObjects
+
+data-sly-include --- to inclue any html files into another
+<div data-sly-include="redning.html"></div> to include in same component
+if we want to include one html of other to one component we need to get the path of the component
+
+data-sly-resource - To include resources(Components ,content resources)
+<div data-sly-resource = ${'button ' @resourceType='/path of the component button' withoutout/apps}"></div>
+
+data-sly-list----- Repeat the host element based on the size of the list
+data-sly-test - conditionally removed host element and data
 
 Components in AEM
 =================
