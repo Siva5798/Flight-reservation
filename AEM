@@ -202,19 +202,58 @@ we will mention the private variable type of the corresponding slingmodel
 
 Advantage of Postcontruct
 ==========================
-@Inject will inject the dialog data which is authored and saved and by fetching 
-html it will coming using @Inject
 after the data coming into java class if we want the dailog to perform custom operations
 for ex if we have a text field we have authored the text and saved and with the text we want 
 to call an api with post construct method and fetch some more data then in the case 
 we use post contruct
 after injection are done post construct will be exectured
+@Inject 
+It will inject the value in the node property data to the sling model class(resource)
+@default
+if you are not entering any values in a particular field it will return the default value of which it is assigned
 
+@Named 
+eg we are accessing the resourceType in the jcr properties in java class we cant able to define the sling:Resourcetype directlt
+we use @Named(sling:resourceType) so that it can able to access them i
 @via
 Via is used super resource type property to access in the child resource type we 
 use via
 @valuemapvalue
 fetch data from one request adaptablity from the request parameter into sling model we use 
+
+@ScriptVariable 
+Script relatable information to be provided in sling model we use Scriptvariable 
+for eg if we want to access the page related information we want page manager to be cruded with page so therefor we /
+create a scriptvariable and it helps us to acceess the page 
+
+eg:
+@ScriptVariable
+Page page;
+
+@ResourcePath(path=/......)@Via("resource")
+Resource resourcePath;
+
+@SELF
+@Model(adaptables=Resource.class) will define the resource classes in class level 
+if we want to access the resource in the field level use 
+@Self
+Resource resource
+
+@ResourcePath
+@ResourcePath with the help of this we can able to get the path define in the jcr properties
+
+@childResource
+If we want any values or acees the child page we can use this page
+
+@RequestAttribute
+if we want to pass the value from HTL to Slingmodel we will use request attribute
+
+in htl @htlattrobute ='htlvalue'
+in model we call like
+@RequestAttribute(name="htlattrobute")
+private String htlvalue
+
+
 Valuemapvalue
 =====================================================================================================
 Sling Schedular
