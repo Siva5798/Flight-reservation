@@ -1,0 +1,34 @@
+Lamda expresssion?
+syntax of lamda expression
+()  ->  {}
+Functional Interface 
+The interface which consists of only one abstract method  but have  mutliple default and static method is known as functional interface.
+ex: Runnable run() callable  call()  comparable compareTo() Camparator   compare()
+
+example
+interface Calculator {
+void switchOn();//method
+void sum(int input)// method with parameter
+int subtract(int a, int b){
+          return subtract;                          // method with paramter and return type
+}
+public class CalcImpl{
+
+public static void main(String [] args){
+Calculator calc = () -> {
+system.out.println("Switch on");
+};
+
+Calculator calc = (int input) -> {
+System.out.println("Sum : "+input)
+};
+
+Calculator calc = (int a , int b) ->{
+System.out.println("Subtract : "+subtract);
+};
+calc.subtract(10,9);
+calc.switchOn();
+calc.sum(500);
+}
+}
+
