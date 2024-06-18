@@ -294,8 +294,57 @@ Throws
 ========
 The throw statement allows you to create a custom error.
 =========================================================================================================================================
+If we are assigning a variable in private so therefore the variable is acccessed within the class so if we want to access the variable field in another class
+1.)we can create the method of it in same class and we can get the values from this method with help of object by creating object in othe rclass
+2.) or we can create a method and return its value and set it values in other method then with the help pf pbject we can able to set the values in other classes
+and get it values with the help of object by calling its respective methods
+So this process of binding the data into methods and accessing them is known as encapsulations
+=================================================================================================================================================================
+this keyword in encapsulatins
+============
+this is the keyword which represents the current object 
+Constructors
+=======================
+Constructors have the same name as class name 
+constructors does not contain any return type
+for every creation of a new object, constructor will be exceuted
+
+Super
+=======
+By default every constructor has the first statment as super keyword 
+super() means calling the constructors of the super() class
+Naming Conversions
+==============================
+Camel Casing 
+
+class and interface should start with capital letter -Calc, Runable
+variable and methods should be start with small name  ex : marks, show()
+constants -all capital PIE, BRAND
+// age   MY_DATA//constants
+//showMyMarks()
+//shw_my_Marrks() 
+
+======================================================================================
+Annonymous
+======================
+We can create a object of a class by using the new keyword and reference variable 
+ex : Human object = new Human();
+if we are creating the object in an annonymous way we simply use new keyword followed by constructor class
+ex new Human(); // annonymous object 
+the only pblm is we cannot reuse the object
+
+====================================================================================================================
+Inheritance 
+//here Calc is the base/super class and AdvCalc is the derived/sub class so called inheritance
+    //we use the keyword called extends
+
+when inherited between two classes is known as single level inheritance ex B->A
+when inherited between two or more classes is known as multi level inheritance  C->B->A,
+meltiple inheritence will not work in java
+ 
+
 Lamda
 -------
-A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right in the body of a method.
+A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right     in the body of a method.
 parameter -> expression
 ====================================================================================================================================
