@@ -341,8 +341,36 @@ Inheritance
 when inherited between two classes is known as single level inheritance ex B->A
 when inherited between two or more classes is known as multi level inheritance  C->B->A,
 meltiple inheritence will not work in java
- 
+ ==========================================================================================================================
+polymorphism 
+=====================
+two types 
+Complie time polymorphism // overloading same methods with different parameters
+Run time polymorphism //overriding same methods with same parameter by extending the class
 
+In inheritance only we can able to perform new object creation for different classes which extends parent classes
+==============================================================================================================================================
+Final
+===========================
+final with variable ex final int num =8; it can be changed its constant  
+if you give the class name as final we are stopping the inheritance 
+method overriding can be also stopped by adding final keyword in method ex public final void show()
+===================================================================================================================================================
+Object classs
+===================
+toString()  
+===================================================================================================================================================
+Abstract keyword
+===============================   
+abstract method only in abstract class and also whenever a class is extending the abstract class it should have the abstract method or else it will show error
+
+we cannot create the object of object class so with the help of other class reference class
+ abtract class can have both normal methods and abstract methods 
+ mandatory to apply the drive method here because it extends the abstract class
+//if i dont want to call the method fly here , since Car is an abstract class it will show error to define the method fly in volvo
+// in other case we can make this volvo class to abstract ,and create a new pbject reference by creating a new class
+}
+======================================================================================================
 Lamda
 -------
 A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right     in the body of a method.
